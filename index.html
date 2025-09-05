@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lia - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Hi, I'm Praveena</h1>
+    <p id="typing"></p>
+    <p>I create engaging websites and designs that bring ideas to life.</p>
+    <a href="projects.html" class="btn">View My Projects</a>
+  </section>
+
+  <div class="about-snippet">
+    <p>I'm a second-year IT student passionate about coding, design, and development. I enjoy creating responsive websites and learning new technologies. Currently, I'm working on an Employee Database Management System and have completed a hotel website project for my college.</p>
+  </div>
+
+  <footer>
+  <p>© 2025 Praveena | All Rights Reserved</p>
+  <p>
+    📧 <a href="mailto:praveenabala2907@gmail.com">praveenabala2907@gmail.com</a> &nbsp;&nbsp;
+    🐱 <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+  </p>
+</footer>
+
+
+  <script>
+    const roles = ["A passionate Web Developer", "Designer"];
+    let i = 0, j = 0, currentRole = '', typing = true;
+    const typingElement = document.getElementById('typing');
+
+    function typeRole() {
+      if (typing) {
+        if (j < roles[i].length) {
+          currentRole += roles[i][j];
+          typingElement.textContent = currentRole;
+          j++;
+          setTimeout(typeRole, 150);
+        } else {
+          typing = false;
+          setTimeout(typeRole, 1000);
+        }
+      } else {
+        if (j > 0) {
+          currentRole = currentRole.slice(0, -1);
+          typingElement.textContent = currentRole;
+          j--;
+          setTimeout(typeRole, 100);
+        } else {
+          typing = true;
+          i = (i + 1) % roles.length;
+          setTimeout(typeRole, 500);
+        }
+      }
+    }
+
+    typeRole();
+  </script>
+
+</body>
+</html>
